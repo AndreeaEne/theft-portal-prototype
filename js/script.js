@@ -1,8 +1,7 @@
 // Form validation
 $(document)
 .ready(function() {
-  $('.ui.form')
-  .form({
+  $('.ui.form.login').form({
     fields: {
       email: {
         identifier  : 'email',
@@ -34,9 +33,9 @@ $(document)
   });
 
 
-  $('.ui.form.info')
-    .form({
+  $('.ui.form.info').form({
       inline : true,
+
       fields: {
         model: {
           identifier: 'model',
@@ -77,9 +76,9 @@ $(document)
       }
     });
 
-  $('.ui.form.event')
-  .form({
+  $('.ui.form.event').form({
     inline : true,
+
     fields: {
       calendar: {
         identifier: 'calendar',
@@ -121,43 +120,55 @@ $(document)
         ]
       },
 
-      model: {
-        identifier: 'model',
-        rules: [
-          {
-            type: 'empty',
-            prompt: 'You must add the item model'
-          }
-        ]
-      },
-
     }
   });
 
 
-  $('.ui.form.event .submit').click(function() {
-    $('.ui.form.info').submit();
+  // Activate form validation
+  $('.ui.form.event .submit').click(function(e) {
+    e.preventDefault();
+
+    var formsValid =
+      $('.ui.form.info') .form('is valid') &&
+      $('.ui.form.event').form('is valid');
+
+    // If the form(s) is valid, show the modal
+    if (formsValid)
+      $('.ui.basic.modal')
+        .modal('setting', 'closable', false)
+        .modal('show')
+
+    // Form not valid, show validation
+    else {
+      $('.ui.form.info').submit();
+      $('.ui.form.event').submit();
+    }
+
+    return false;
   });
+
+
+  // City dropdown
+  $('.ui.dropdown').dropdown();
+
+
+  // // Alert
+  // $('#submit').click(function() {
+  //   var formsValid =
+  //     $('.ui.form.info') .form('is valid') &&
+  //     $('.ui.form.event').form('is valid');
+  //   console.log(formsValid);
+  //
+  //   if (formsValid) {
+  //     $('.ui.basic.modal')
+  //       .modal('setting', 'closable', false)
+  //       .modal('show')
+  //   }
+  //   return false;
+  // });
+
 });
 
-
-// Calendar
-function showCalendar() {
-  $('#calendar').calendar();
-}
-
-// Alert
-// TODO: un-comment
-// $('#submit').click(function() {
-//   $('.ui.basic.modal')
-//   .modal('setting', 'closable', false)
-//   .modal('show');
-// });
-
-// City dropdown
-$('.ui.dropdown')
-  .dropdown()
-;
 
 // TODO select/deselect items
 // $('#menu li a').on('click', function(){
