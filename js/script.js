@@ -36,6 +36,7 @@ $(document)
 
   $('.ui.form.info')
     .form({
+      inline : true,
       fields: {
         model: {
           identifier: 'model',
@@ -78,6 +79,7 @@ $(document)
 
   $('.ui.form.event')
   .form({
+    inline : true,
     fields: {
       calendar: {
         identifier: 'calendar',
@@ -89,17 +91,55 @@ $(document)
         ]
       },
 
+      city: {
+        identifier: 'city',
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'You must add the city'
+          }
+        ]
+      },
+
       street: {
         identifier: 'street',
         rules: [
           {
             type: 'empty',
-            prompt: 'You must add the date and time'
+            prompt: 'You must add the street and number'
           }
         ]
       },
+
+      postcode: {
+        identifier: 'postcode',
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'You must add the postcode'
+          }
+        ]
+      },
+
+      model: {
+        identifier: 'model',
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'You must add the item model'
+          }
+        ]
+      },
+
     }
   });
+
+
+  $('.ui.form.event .submit').click(function() {
+    $('.ui.form.info').submit();
+  });
+
+
 });
 
 
