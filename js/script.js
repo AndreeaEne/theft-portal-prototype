@@ -138,11 +138,7 @@ $(document)
   $('.ui.form.event .submit').click(function() {
     $('.ui.form.info').submit();
   });
-
-
 });
-
-
 
 
 // Calendar
