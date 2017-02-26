@@ -1,6 +1,8 @@
 // Form validation
 $(document)
 .ready(function() {
+
+  // Login form validation
   $('.ui.form.login').form({
     fields: {
       email: {
@@ -33,6 +35,7 @@ $(document)
   });
 
 
+  // Left-column form validation
   $('.ui.form.info').form({
       inline : true,
 
@@ -76,6 +79,7 @@ $(document)
       }
     });
 
+  // Right-column form validation
   $('.ui.form.event').form({
     inline : true,
 
@@ -124,7 +128,7 @@ $(document)
   });
 
 
-  // Activate form validation
+  // Submit button behavior
   $('.ui.form.event .submit').click(function(e) {
     e.preventDefault();
 
@@ -150,22 +154,6 @@ $(document)
 
   // City dropdown
   $('.ui.dropdown').dropdown();
-
-
-  // // Alert
-  // $('#submit').click(function() {
-  //   var formsValid =
-  //     $('.ui.form.info') .form('is valid') &&
-  //     $('.ui.form.event').form('is valid');
-  //   console.log(formsValid);
-  //
-  //   if (formsValid) {
-  //     $('.ui.basic.modal')
-  //       .modal('setting', 'closable', false)
-  //       .modal('show')
-  //   }
-  //   return false;
-  // });
 
 });
 
