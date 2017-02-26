@@ -1,4 +1,4 @@
-// Check e-mail and password
+// Form validation
 $(document)
 .ready(function() {
   $('.ui.form')
@@ -31,10 +31,79 @@ $(document)
         ]
       }
     }
-  })
-  ;
-})
-;
+  });
+
+
+  $('.ui.form.info')
+    .form({
+      fields: {
+        model: {
+          identifier: 'model',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'You must add the item model'
+            }
+          ]
+        },
+        manufacturer: {
+          identifier: 'manufacturer',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'You must add the manufacturer name'
+            }
+          ]
+        },
+        color: {
+          identifier: 'color',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'You must add the item color'
+            }
+          ]
+        },
+        'reg-number': {
+          identifier: 'reg-number',
+          rules: [
+            {
+              type: 'empty',
+              prompt: 'You must add the registration number'
+            }
+          ]
+        }
+      }
+    });
+
+  $('.ui.form.event')
+  .form({
+    fields: {
+      calendar: {
+        identifier: 'calendar',
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'You must add the date and time'
+          }
+        ]
+      },
+
+      street: {
+        identifier: 'street',
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'You must add the date and time'
+          }
+        ]
+      },
+    }
+  });
+});
+
+
+
 
 // Calendar
 function showCalendar() {
@@ -42,11 +111,12 @@ function showCalendar() {
 }
 
 // Alert
-$('#submit').click(function() {
-  $('.ui.basic.modal')
-  .modal('setting', 'closable', false)
-  .modal('show');
-});
+// TODO: un-comment
+// $('#submit').click(function() {
+//   $('.ui.basic.modal')
+//   .modal('setting', 'closable', false)
+//   .modal('show');
+// });
 
 // City dropdown
 $('.ui.dropdown')
