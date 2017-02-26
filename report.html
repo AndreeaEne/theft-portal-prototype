@@ -20,24 +20,19 @@
   <h1 id=reportTitle class="ui center aligned header"style="color: var(--main-blue);">Submit Thef or Robbery</h1> </br>
   <h3 id=reportSubtitle class="ui center aligned header" style="color:black;">If you have been a victim of theft or robbery,</br> you can report it here.</h3>
 
-  <div class="ui top fixed menu" style="background-color: var(--main-blue);">
+  <div id=navbar class="ui top fixed menu">
     <a id=left-header href="index.html" class="item">POLICE.UK</a>
-    <div class="right menu">
-      <div class="ui right aligned category search item">
-        <a id=right-header href="index.html">Theft and Robbery Portal</a>
-      </div>
-    </div>
+    <a id=right-header class="ui right aligned item" href="index.html">Theft and Robbery Portal</a>
   </div>
 
-
   <!-- FORM -->
-  <div id=form class="ui centered grid">
+  <div id=form class="ui centered stackable grid">
     <div id=columns-form class="two column row">
 
       <!-- left-column -->
       <div id=left-column class="column">
         <h4 class="ui horizontal divider header">ITEM</h4>
-        <!-- vehicles -->
+        <!-- simple vehicles -->
         <!-- <div class="ui three column centered aligned grid vehicles">
         <div class="center aligned column">
         <i class="circular huge bicycle icon"></i></br>
@@ -50,7 +45,7 @@
     <div class="center aligned column"4
     <i class="circular huge ellipsis horizontal icon"></i></br>
     <span>OTHER</span> -->
-    <div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a">
+    <div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a vehicles">
       <div class="ui three column centered aligned grid vehicles">
         <div class="center aligned column"><i class='hi-icon fa fa-bicycle'></i></div>
         <div class="center aligned column"><i class='hi-icon fa fa-car'></a></i></div>
@@ -87,8 +82,7 @@
 
       <div class="field">
         <label>Date and time of incident</label>
-        <!-- <input type="text" name="first-name" placeholder="01 Nov 2016">
-      </div> -->
+      </div>
 
       <div onclick="showCalendar()" id=calendar class="ui calendar field">
         <div class="ui input left icon">
@@ -99,20 +93,49 @@
 
       <div class="field">
         <label>City</label>
-        <input type="text" name="last-name" placeholder="London">
+        <select id="options" class="ui search dropdown">
+          <option>London</option>
+          <option>Birmingham</option>
+          <option>Leeds</option>
+          <option>Glasgow</option>
+          <option>Sheffield</option>
+          <option>Bradford</option>
+          <option>Manchester</option>
+          <option>Edinburgh</option>
+          <option>Liverpool</option>
+          <option>Bristol</option>
+          <option>Cardiff</option>
+          <option>Belfast</option>
+          <option>Leicester</option>
+          <option>Wakefield</option>
+          <option>Coventry</option>
+          <option>Nottingham</option>
+          <option>Newcastle</option>
+          <option>Plymouth</option>
+          <option>Derby</option>
+          <option>Southampton</option>
+          <option>Portsmouth</option>
+          <option>York</option>
+          <option>Aberdeen</option>
+          <option>Peterborough</option>
+        </select>
       </div>
+
       <div class="field">
         <label>Street name and number</label>
-        <input type="text" name="last-name" placeholder="96 Euston Road">
+        <input type="text" name="street" placeholder="96 Euston Road">
       </div>
+
       <div class="field">
         <label>Postcode</label>
-        <input type="text" name="last-name" placeholder="NW1 2DB">
+        <input type="text" name="postcode" placeholder="NW1 2DB">
       </div>
+
       <div class="field">
         <label>Additional information - Optional</label>
         <textarea></textarea>
       </div>
+
       <div class="ui container center aligned">
         <!-- <div class="ui submit button send-form">Submit</div> -->
         <div id=submit class="ui primary basic button" style="border-width:0">Submit</div>
@@ -134,10 +157,6 @@
     </div>
     <div class="ui center aligned header">
       <div class="actions">
-        <!-- <div class="ui red basic cancel inverted button">
-          <i class="remove icon"></i>
-          No
-        </div> -->
         <div class="ui blue ok inverted button">
           <a href="index.html">home</a>
         </div>

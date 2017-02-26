@@ -1,3 +1,4 @@
+// Check e-mail and password
 $(document)
 .ready(function() {
   $('.ui.form')
@@ -35,19 +36,35 @@ $(document)
 })
 ;
 
-// calendar
+// Calendar
 function showCalendar() {
   $('#calendar').calendar();
 }
 
-// alert
+// Alert
 $('#submit').click(function() {
   $('.ui.basic.modal')
   .modal('setting', 'closable', false)
   .modal('show');
 });
 
-// redirect for mobile
-if (screen.width <= 699) {
-  document.location = "mobile.html";
-}
+// City dropdown
+$('.ui.dropdown')
+  .dropdown()
+;
+
+// TODO select/deselect items
+// $('#menu li a').on('click', function(){
+//     $('li a.current').removeClass('current');
+//     $(this).addClass('current');
+// });
+
+
+// TODO Populate with cities
+// $.getJSON("data/uk-cities.json", function(result) {
+//     var options = $("#options");
+//     //don't forget error handling!
+//     $.each(result, function(item) {
+//         options.append($("<option />").val(item.ImageFolderID).text(item.Name));
+//     });
+// });
