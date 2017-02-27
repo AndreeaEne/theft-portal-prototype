@@ -127,7 +127,6 @@ i.circular.icon {
 
 .info,
 .event {
-  top: 20%;
   background-color: #fefefe;
   padding-left: 22%;
   padding-right: 22%;
@@ -136,7 +135,6 @@ i.circular.icon {
 }
 
 .event {
-  top: -10%;
   padding-top: 4%;
   padding-bottom: 5%;
 }
