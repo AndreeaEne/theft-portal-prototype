@@ -10,28 +10,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.8/semantic.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.6/calendar.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="css/component.css">
 
 </head>
 
 <body>
-  <h1 id=reportTitle class="ui center aligned header"style="color: var(--main-blue);">Submit Thef or Robbery</h1> </br>
-  <h3 id=reportSubtitle class="ui center aligned header" style="color:black;">If you have been a victim of theft or robbery,</br> you can report it here.</h3>
+  <h1 id="report-title"    class="ui center aligned header">Submit Thef or Robbery</h1> </br>
+  <h3 id="report-subtitle" class="ui center aligned header">If you have been a victim of theft or robbery,</br> you can report it here.</h3>
 
-  <div id=navbar class="ui top fixed menu">
+  <nav id=navbar class="ui top fixed menu">
     <a id=left-header href="index.html" class="item">POLICE.UK</a>
     <a id=right-header class="ui right aligned item" href="index.html">Theft and Robbery Portal</a>
-  </div>
+  </nav>
 
-  <!-- FORM -->
+  <!-- FORMS -->
   <div id=form class="ui centered stackable grid">
     <div id=columns-form class="two column row">
 
       <!-- left-column -->
       <div id=left-column class="column">
         <h4 class="ui horizontal divider header">ITEM</h4>
+
         <!-- simple vehicles -->
         <!-- <div class="ui three column centered aligned grid vehicles">
         <div class="center aligned column">
@@ -45,12 +46,13 @@
     <div class="center aligned column"4
     <i class="circular huge ellipsis horizontal icon"></i></br>
     <span>OTHER</span> -->
+
+    <!-- Object type -->
     <div class="hi-icon-wrap hi-icon-effect-2 hi-icon-effect-2a vehicles">
       <div class="ui three column centered aligned grid vehicles">
-        <div class="center aligned column"><i class='hi-icon fa fa-bicycle'></i></div>
-        <div class="center aligned column"><i class='hi-icon fa fa-car'></a></i></div>
-        <div class="center aligned column"><i class='hi-icon fa'></a></i></div>
-        <!-- </div> -->
+        <div class="center aligned column"><i class='hi-icon fa fa-bicycle'></i><span>Bicycle</span></div>
+        <div class="center aligned column"><i class='hi-icon fa fa-car'>    </i><span>Car</span></div>
+        <div class="center aligned column"><i class='hi-icon fa fa-mobile'></i><span>Other</span></div>
       </div>
     </div>
 
@@ -58,25 +60,25 @@
     <form class="ui form info">
       <div class="field">
         <label>Model</label>
-        <input type="text" name="first-name" placeholder="JOHN COOPER WORKS HARDTOP">
+        <input type="text" name="model" placeholder="John Cooper Works Hardtop">
       </div>
       <div class="field">
         <label>Manufacturer</label>
-        <input type="text" name="last-name" placeholder="MINI">
+        <input type="text" name="manufacturer" placeholder="Mini">
       </div>
       <div class="field">
         <label>Color</label>
-        <input type="text" name="last-name" placeholder="Red">
+        <input type="text" name="color" placeholder="Red">
       </div>
       <div class="field">
         <label>Registration Number</label>
-        <input type="text" name="last-name" placeholder="43793439397432">
+        <input type="text" name="reg-number" placeholder="EBZ 5155">
       </div>
     </form>
   </div>
 
   <!-- right-column -->
-  <div id=right-column class="column ">
+  <div id=right-column class="column">
     <h4 class="ui horizontal divider header">EVENT</h4>
     <form class="ui form event">
 
@@ -84,16 +86,17 @@
         <label>Date and time of incident</label>
       </div>
 
-      <div onclick="showCalendar()" id=calendar class="ui calendar field">
+      <div onmouseup="$(this).calendar()" id=calendar class="ui calendar field">
         <div class="ui input left icon">
           <i class="calendar icon"></i>
-          <input type="text" placeholder="February 27, 2017 4:00 PM">
+          <input type="text" name="calendar" placeholder="February 27, 2017 4:00 PM">
         </div>
       </div>
 
       <div class="field">
         <label>City</label>
-        <select id="options" class="ui search dropdown">
+        <select id="options" class="ui search dropdown" name="city">
+          <option></option>
           <option>London</option>
           <option>Birmingham</option>
           <option>Leeds</option>
@@ -123,7 +126,7 @@
 
       <div class="field">
         <label>Street name and number</label>
-        <input type="text" name="street" placeholder="96 Euston Road">
+        <input type="text" name="street" placeholder="96 Euston Rd">
       </div>
 
       <div class="field">
@@ -132,45 +135,44 @@
       </div>
 
       <div class="field">
-        <label>Additional information - Optional</label>
+        <label>Additional information<span class="optional"> - Optional<span></label>
         <textarea></textarea>
       </div>
 
       <div class="ui container center aligned">
-        <!-- <div class="ui submit button send-form">Submit</div> -->
-        <div id=submit class="ui primary basic button" style="border-width:0">Submit</div>
+        <button id=submit class="ui basic primary submit button">Submit</button>
       </div>
     </form>
   </div>
 </div>
 </div>
 
-<!-- alert -->
+
+<!-- Modal -->
 <div class="ui center aligned header">
   <div id=alert_modal class="ui basic modal">
-    <div id=alert_title class="ui icon header">
+
+    <div id="alert-title" class="ui icon header">
       <i id=success class="green check circle icon"></i>
       SUCCESS
     </div>
-    <div id=alert_subtitle class="ui center aligned header">
+
+    <div id="alert-subtitle" class="ui center aligned header">
       <p>your report has been succesfully submitted.</p>
     </div>
+
     <div class="ui center aligned header">
       <div class="actions">
-        <div class="ui blue ok inverted button">
-          <a href="index.html">home</a>
-        </div>
+        <a class="ui blue ok inverted button" href="index.html">home</a>
       </div>
     </div>
+
   </div>
 </div>
 
 
 <!--Scripts-->
-<script
-src="https://code.jquery.com/jquery-3.1.1.min.js"
-integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.8/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.6/calendar.min.js"></script>
 <script src="js/script.js"></script>
